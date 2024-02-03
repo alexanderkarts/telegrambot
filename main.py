@@ -3,6 +3,7 @@ from config import BOT_TOKEN
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
+
 @bot.message_handler(commands=['start', 'hello_world'])
 def send_welcome(message):
     bot.reply_to(message, f'Привет, {message.from_user.first_name} {message.from_user.last_name}')
