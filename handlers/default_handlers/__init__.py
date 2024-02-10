@@ -1,6 +1,6 @@
 from . import start
 from . import help
-from . import echo
+from . import say_hello
 
-__all__ = ['start', 'help', 'echo']
+__all__ = ['start', 'help', 'say_hello.py']
 
