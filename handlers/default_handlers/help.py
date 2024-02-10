@@ -7,4 +7,5 @@ from telebot.types import Message
 def func_help(message: Message):
     bot.reply_to(message, f'Комады бота: \n'
                           f'/start — запуск бота\n'
+                          f'/hello_world — приветствие'
                           f'/help — помощь по командам бота\n')
