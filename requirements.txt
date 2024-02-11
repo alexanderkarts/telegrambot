@@ -1,7 +1,2 @@
-pip~=24.0
-certifi~=2024.2.2
-requests~=2.31.0
-urllib3~=2.2.0
-idna~=3.6
-setuptools~=49.2.1
+telebot~=0.0.5
 python-dotenv~=1.0.1
