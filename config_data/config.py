@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv, find_dotenv
 
-
 if not find_dotenv():
     exit("Переменные окружения не загружены, так как отсутствует файл .env")
 else:
@@ -10,3 +9,9 @@ else:
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 API_KEY = os.getenv("API_KEY")
 
+DEFAULT_COMMANDS = (
+    ("start", "Запустить бота"),
+    ("help", "Вывести справку"),
+    ("survey", "Опрос")
+
+)
