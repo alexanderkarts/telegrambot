@@ -12,6 +12,7 @@ API_KEY = os.getenv("API_KEY")
 DEFAULT_COMMANDS = (
     ("start", "Запустить бота"),
     ("help", "Вывести справку"),
-    ("survey", "Опрос")
+    ("registration", "Регистрация"),
+    # ("survey", "Опрос")
 
 )

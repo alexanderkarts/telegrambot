@@ -5,7 +5,9 @@ from telebot.types import Message
 
 @bot.message_handler(commands=['help'])
 def func_help(message: Message):
-    bot.reply_to(message, f'Комады бота: \n'
+    bot.reply_to(message, f'Комады бота:\n'
+                          f'Поздороваться с ботом - напиши "Привет" \n'
                           f'/start — запуск бота\n'
                           f'/hello_world — приветствие\n'
-                          f'/help — помощь по командам бота\n')
+                          f'/help — помощь по командам бота\n'
+                          f'/registration - регистрация\n')
