@@ -1,3 +1,4 @@
+from keyboards.inline.btn_registration import btn_registration
 from loader import bot
 from states.contact_information import UserInfoState
 from telebot.types import Message
@@ -46,7 +47,7 @@ def get_contact(message: Message) -> None:
             text = f'Спасибо за предоставленную информацию, ваши данные:\n' \
                    f'Имя - {data["name"]}\n' \
                    f'Номер телефона - {data["phone_number"]}\n'
-            bot.send_message(message.from_user.id, text)
+            bot.send_message(message.from_user.id, text, reply_markup=btn_registration())
         bot.delete_state(message.from_user.id, message.chat.id)
 
     else:

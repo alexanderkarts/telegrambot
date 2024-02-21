@@ -18,22 +18,28 @@ def send_welcome(message: Message):
 
     else:
         bot.reply_to(message, f'Привет, {message.from_user.username}!\n'
-                              f'Ознокомься с командами бота - /help', reply_markup=start_button())
+                              f'Этот бот умеет показвать температуру в городе\n'
+                              f'Для этого зарегистрируйся\n'
+                              f'Команда -> /registration', reply_markup=start_button())
 
 
 def get_city(message):
-    try:
-        city = message.text.strip().lower()
-        res = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric')
-        data = json.loads(res.text)
-        data_temp = data["main"]["temp"]
-        bot.reply_to(message, f'Сейчас погода {data_temp}°C', reply_markup=get_city_button())
-    except Exception:
-        bot.reply_to(message, f'Город не найден. Попробуй еще раз')
-        if message.text.startswith('/'):
-            func_help(message)
-        else:
-            bot.register_next_step_handler(message, get_city)
+    if start_find_user(message):
+        try:
+            city = message.text.strip().lower()
+            res = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric')
+            data = json.loads(res.text)
+            data_temp = data["main"]["temp"]
+            bot.reply_to(message, f'Сейчас погода {data_temp}°C', reply_markup=get_city_button())
+        except Exception:
+            bot.reply_to(message, f'Город не найден. Попробуй еще раз')
+            if message.text.startswith('/'):
+                func_help(message)
+            else:
+                bot.register_next_step_handler(message, get_city)
+    else:
+        bot.reply_to(message, 'Вы не зарегестрированы\n'
+                              'Команда -> /registration')
 
 
 @bot.callback_query_handler(func=lambda call: True)
