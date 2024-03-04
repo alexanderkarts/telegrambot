@@ -4,6 +4,8 @@ from states.contact_information import UserInfoState
 from telebot.types import Message
 from database.bot_database import add_user, add_user_name, add_user_phone, name_user, phone_user, id_user
 from keyboards.reply.contact import request_contact
+
+
 @bot.message_handler(commands=['registration'])
 def registration(message: Message) -> None:
     user_status = add_user(message)
