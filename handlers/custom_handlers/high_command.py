@@ -14,7 +14,5 @@ def low_get_weather(message: Message):
                          reply_markup=inline_high_get_city_btn())
 
     else:
-        bot.reply_to(message, f'Привет, {message.from_user.username}!\n'
-                              f'Этот бот умеет показывать температуру в городе\n'
-                              f'Для этого зарегистрируйся\n'
+        bot.reply_to(message, f'Нужно зарегистрироваться⛔️\n'
                               f'Команда -> /registration', reply_markup=start_button())

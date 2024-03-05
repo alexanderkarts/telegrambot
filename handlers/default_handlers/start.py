@@ -12,7 +12,7 @@ def send_welcome(message: Message):
         bot.send_message(message.from_user.id, f'С возращением, {name}!\n', reply_markup=inline_start_btn())
 
     else:
-        bot.reply_to(message, f'Привет, {message.from_user.username}!\n'
-                              f'Этот бот умеет показвать температуру в городе\n'
+        bot.reply_to(message, f'Привет, {message.from_user.username} 👋\n\n'
+                              f'Этот бот умеет показывать температуру в городе\n'
                               f'Для этого зарегистрируйся\n'
                               f'Команда -> /registration', reply_markup=start_button())
