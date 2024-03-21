@@ -1,4 +1,3 @@
-from . import callback_data
 from . import get_city
 from . import high_get_city
 from . import low_get_city

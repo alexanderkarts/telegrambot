@@ -6,7 +6,8 @@ from telebot.types import Message
 
 
 @bot.message_handler(commands=['high'])
-def low_get_weather(message: Message):
+def high_get_weather(message: Message):
+    print('Пришла команда high')
     if start_find_user(message):
         name = name_user(message)
         bot.send_message(message.from_user.id, f'{name}, эта команда позволит узнать максимальную погоду за 5 дней '

@@ -8,6 +8,7 @@ from keyboards.reply.contact import request_contact
 
 @bot.message_handler(commands=['registration'])
 def registration(message: Message) -> None:
+    print('Пришла команда registration')
     user_status = add_user(message)
     if user_status == False:
         idUser = id_user(message)

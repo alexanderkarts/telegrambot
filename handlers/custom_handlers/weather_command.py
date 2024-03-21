@@ -8,7 +8,7 @@ from telebot.types import Message
 @bot.message_handler(commands=['weather'])
 def weather_command(message: Message):
     if start_find_user(message):
-        bot.send_message(message.from_user.id, 's', reply_markup=inline_start_btn())
+        bot.send_message(message.from_user.id, 'Выбери действие', reply_markup=inline_start_btn())
 
     else:
         bot.reply_to(message, f'Нужно зарегистрироваться⛔️\n'

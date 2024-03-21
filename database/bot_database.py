@@ -1,6 +1,9 @@
+import os
 import sqlite3
 
-with sqlite3.connect('database\\tgg_bot.db', check_same_thread=False) as database:
+database_path = os.path.join('database', 'tgg_bot.db')
+
+with sqlite3.connect(database_path, check_same_thread=False) as database:
     """
     Создание таблицы с тремя показателями: 
                     user_id - Айди пользователя;

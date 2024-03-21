@@ -1,10 +1,9 @@
 import json
 import requests
-from telebot import types
-
 from config_data.config import API_KEY
 from database.bot_database import start_find_user
 from handlers.default_handlers.help import func_help
+from keyboards.inline.btn_locations_high_and_low_get_city import btn_locations_high_and_low_get_city
 from loader import bot
 
 
@@ -15,18 +14,7 @@ def high_get_city(message):
             res = requests.get(f'http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=5&appid={API_KEY}')
             data = json.loads(res.text)
             if data:
-
-                markup = types.InlineKeyboardMarkup()
-
-                for location in data:
-                    button_text = f"{location.get('local_names', {}).get('ru', location.get('name', 'Default Name'))}" \
-                                  f" - {location.get('country')} - {location.get('state', 'Default State')}"
-
-                    callback_data = f"highlocation_{location.get('lat')}_{location.get('lon')}"
-
-                    markup.add(types.InlineKeyboardButton(button_text, callback_data=callback_data))
-
-                bot.reply_to(message, "Выберите местоположение:", reply_markup=markup)
+                bot.reply_to(message, "Выберите местоположение:", reply_markup=btn_locations_high_and_low_get_city(data))
             else:
                 bot.reply_to(message, "Местоположение не найдено. Попробуйте снова.")
         except Exception as exc:
